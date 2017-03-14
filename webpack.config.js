@@ -4,7 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
-  entry: ['bootstrap-loader', './client/index.js'],
+  entry: ['./client/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -26,12 +26,7 @@ module.exports = {
           use: [ "css-loader", "sass-loader" ]
         })
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      },
-      { test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery' },
+      //{ test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery' },
       { test: /\.(woff2?|svg)$/, use: 'url-loader?limit=10000' },
       { test: /\.(ttf|eot)$/, use: 'file-loader' },
     ]
@@ -44,8 +39,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'test webpack',
-      template: '_index.html'
+      title: 'test webpack2',
+      template: '_index.ejs'
     }),
     new ExtractTextPlugin("app.css"),
     new webpack.ProvidePlugin({
