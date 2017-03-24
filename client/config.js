@@ -20,12 +20,12 @@ app.config( ($stateProvider, $urlRouterProvider, $locationProvider) => {
     $stateProvider
       .state('home', {
         url: '/',
-        template: require('./components/Home/home.html'),
+        template: require('./components/Home/home.pug'),
         controller: ctrl.homeController
       })
       .state('about', {
         url: '/about',
-        template: require('./components/About/about.html'),
+        template: require('./components/About/about.pug'),
         controller: ctrl.aboutController
       })
        $locationProvider.html5Mode(false);

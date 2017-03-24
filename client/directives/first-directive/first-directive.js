@@ -4,7 +4,7 @@ module.exports = function(app) {
     return {
       restrict: 'E',
       scope: {},
-      template: require('./first-directive.html'),
+      template: require('./first-directive.pug'),
       controllerAs: 'vm',
       controller: function() {
         var vm = this;

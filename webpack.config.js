@@ -4,9 +4,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
-  entry: ['./client/index.js'],
+  entry: [
+    './client/index.js'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'bundle'),
     filename: 'bundle.js'
   },
   module: {
@@ -18,7 +19,7 @@ module.exports = {
            presets: ['es2015']
           }
       },
-      { test: /\.html$/, use: 'raw-loader', exclude: /node_modules/ },
+      { test: /\.pug$/, use: ['raw-loader', 'pug-html-loader'] },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -33,14 +34,14 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    compress: false,
     port: 3000,
     stats: "errors-only"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'test webpack2',
-      template: '_index.ejs'
+      title: 'ng webpack2',
+      template: '_index.pug'
     }),
     new ExtractTextPlugin("app.css"),
     new webpack.ProvidePlugin({
