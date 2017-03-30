@@ -1,0 +1,16 @@
+div
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      #navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li(ui-sref-active="active")
+            a(ui-sref="app.home") Home
+          li(ui-sref-active="active")
+            a(ui-sref="app.about") About
+  .container(ui-view="")
+  footer.footer
+    .container
+      hr
+      .row
+        .col-md-12
+          p.text-muted ng-webpack2 2017
